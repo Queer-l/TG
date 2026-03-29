@@ -68,11 +68,11 @@ public class TimeLine_Manager : MonoBehaviour
             case 114:
                 data.playerIsOnDL = false;
                 data.diaCode = 19;
-                GetNPCByName("Dad_Home").GetComponent<NPC_Dial>().isonline = true;
-                GetNPCByName("Dad_Home").GetComponent<NPC_Dial>().dialogueData = data.diaSoOs[data.diaCode];
+                GetNPCByName("Dad").GetComponent<NPC_Dial>().isonline = true;
+                GetNPCByName("Dad").GetComponent<NPC_Dial>().dialogueData = data.diaSoOs[data.diaCode];
                 break;
             case 115:
-                GetNPCByName("Dad_Home").GetComponent<NPC_Dial>().isonline = false;
+                GetNPCByName("Dad").GetComponent<NPC_Dial>().isonline = false;
                 break;
             default:
                 break;
