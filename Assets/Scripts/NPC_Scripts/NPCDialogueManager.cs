@@ -5,6 +5,8 @@ using UnityEngine;
 public class NPC_Dial : MonoBehaviour
 {
     [Header("对话内容")]
+    public bool isonline = false;
+    public NPC_DialogueSO notOnLineData;
     public NPC_DialogueSO dialogueData;
     [Header("对话面板")]
     public GameObject dialoguePanel;
@@ -21,31 +23,34 @@ public class NPC_Dial : MonoBehaviour
 
     void Update()
     {
+        
         if (isInRange && Input.GetButtonDown("Dialogue"))
-        {
-            StartDialogue();
-        }
-        if(isInRange && Input.GetButtonDown("ExitDialogue"))
-        {
-            ExitDialogue();
-        }
-        if (isInRange && Input.GetButtonDown("Next"))
-        {
-            if (dialogueData.isLast)
+            {
+                StartDialogue();
+            }
+            if (isInRange && Input.GetButtonDown("ExitDialogue"))
             {
                 ExitDialogue();
-                timeLineManager.ChangeTimeLine(dialogueData.chapter); 
             }
-            if(!dialogueData.isLast)
+            if (isInRange && Input.GetButtonDown("Next"))
             {
-                TimeLineData.instance.diaCode++;
+                if (dialogueData.isLast)
+                {
+                    ExitDialogue();
+                    timeLineManager.ChangeTimeLine(dialogueData.chapter);
+                }
+                if (!dialogueData.isLast)
+                {
+                    TimeLineData.instance.diaCode++;
+                    StartDialogue();
             }
-        }
+            }
+        
     }
 
     public void StartDialogue()
     {
-        dialogueData = TimeLineData.instance.diaSoOs[TimeLineData.instance.diaCode];
+        dialogueData = isonline ? TimeLineData.instance.diaSoOs[TimeLineData.instance.diaCode] : notOnLineData;
         if (dialogueData == null) return;
         npcNmaeText.text = NPC_Name;
         dialoguePanel.SetActive(true);

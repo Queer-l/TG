@@ -12,10 +12,9 @@ public class TimeLineData : MonoBehaviour
 
     [Header("对话内容存放")]
     public NPC_DialogueSO[] diaSoOs;
-    [Header("npc对话管理器")]
-    public NPC_Dial[] npcs;
-    [Header("玩家对话管理器")]
-    public Player_DLManager[] playDLs;
+    [Header("npc管理器")]
+    public NPC_Visible[] npcs = new NPC_Visible[40];
+    
     public bool playerIsOnDL = true;
     [Header("对话编码")]
     public int diaCode = 0;
@@ -34,10 +33,30 @@ public class TimeLineData : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+
+            // 新增：监听场景切换
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
             Destroy(gameObject);
+        }
+    }
+    // 场景加载完成 → 清空旧NPC数组
+    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
+    {
+        Debug.Log("新场景加载：清空旧NPC数据");
+        ClearNPCArray();
+    }
+
+    /// <summary>
+    /// 清空全局NPC数组，让新场景NPC重新注册
+    /// </summary>
+    public void ClearNPCArray()
+    {
+        for (int i = 0; i < npcs.Length; i++)
+        {
+            npcs[i] = null;
         }
     }
 }
