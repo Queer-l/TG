@@ -38,7 +38,7 @@ public class NPC_Dial : MonoBehaviour
             }
             if(!dialogueData.isLast)
             {
-                
+                TimeLineData.instance.diaCode++;
             }
         }
     }
