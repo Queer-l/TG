@@ -15,15 +15,17 @@ public class ExitOrEntry : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("2D 触发碰到：" + other.gameObject.name);
-
-        foreach (var item in neededItems)
+        if (InventoryData.instance != null)
         {
-            if (!InventoryData.instance.myItemSOs.Exists(e => e.itemName == item.itemName))
+            Debug.Log("触发判断");
+            foreach (var item in neededItems)
             {
-                return;
+                if (!InventoryData.instance.myItemSOs.Exists(e => e.itemName == item.itemName))
+                {
+                    return;
+                }
             }
         }
-
         if (other.CompareTag("Player"))
         {
             Debug.Log("玩家碰到，开始跳转场景：" + sceneName);

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_DLManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Player_DLManager : MonoBehaviour
     [Header("对话面板")]
     public GameObject dialoguePanel;
     public TMPro.TMP_Text dialogueText;
+    [Header("对话CG")]
+    public Image cg;
 
     [Header("对话人名称")]
     public string NPC_Name;

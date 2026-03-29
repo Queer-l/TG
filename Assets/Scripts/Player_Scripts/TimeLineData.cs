@@ -8,21 +8,20 @@ public class TimeLineData : MonoBehaviour
     // 所有全局数据存在这里
     public int playThrough = 1;
     public int chapter = 111;
-    
 
-    
+
+    [Header("对话内容存放")]
     public NPC_DialogueSO[] diaSoOs;
-
-
     [Header("npc对话管理器")]
     public NPC_Dial[] npcs;
-
     [Header("玩家对话管理器")]
     public Player_DLManager[] playDLs;
     public bool playerIsOnDL = true;
     [Header("对话编码")]
     public int diaCode = 0;
-
+    [Header("CG图库")]
+    public Sprite[] CGs;
+    public int cgCode = 0;
     [Header("连接背包")]
     public InventoryManager itManager;
 

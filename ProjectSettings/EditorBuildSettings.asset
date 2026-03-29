@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BigTreeRed.scene
     guid: 89c332e1c7896d048bee99f5cc58cc3f
+  - enabled: 1
+    path: Assets/Scenes/DaoGuan.scene
+    guid: 84e814cfd0fdab5419582d0851845b51
+  - enabled: 1
+    path: Assets/Scenes/Hospital.scene
+    guid: 188160a43bd3fea4396c493b08f36f06
   m_BuildProfiles: []
   m_configObjects: {}
   m_SlimFeaturesWeixinMiniGame:

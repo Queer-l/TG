@@ -10,7 +10,9 @@ public class Loot : MonoBehaviour
     public bool isUnlocked = true;
     public static event Action<ItemSO, int> OnItemLooted;
     public int quantity;
-
+    public bool isGot = false;
+    [Header("IDºÅ")]
+    public int id;
     private void OnValidate()
     {
         if (itemSO == null)
@@ -22,11 +24,28 @@ public class Loot : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if(collision.CompareTag("Player")&&isGot == false)
         {
+            isGot = true;
             anim.Play("GetItem");
             OnItemLooted?.Invoke(itemSO, quantity);
-            Destroy(gameObject,0.3f);
+            InventoryData.instance.itemStats[id] = false;
+            Destroy(gameObject,0.2f);
+            
+        }
+    }
+    public void Start()
+    {
+        if (itemSO == null)
+        {
+            return;
+        }
+        else
+        {
+            if (InventoryData.instance.itemStats[id]==false)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
