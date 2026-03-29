@@ -20,6 +20,7 @@ public class TimeLine_Manager : MonoBehaviour
     {
         // 实时获取背包
         myItems = InventoryData.instance.myItemSOs;
+        data = TimeLineData.instance;
     }
 
     // 外部修改时间线  自动同步到全局数据
@@ -30,6 +31,18 @@ public class TimeLine_Manager : MonoBehaviour
         UpdataThings(newchapter);
     }
 
+    public NPC_Visible GetNPCByName(string npcName)
+    {
+        for (int i = 0; i < data.npcs.Length; i++)
+        {
+            if (data.npcs[i] != null && data.npcs[i].gameObject.name == npcName)
+            {
+                return data.npcs[i];
+            }
+        }
+        Debug.LogWarning("未找到NPC：" + npcName);
+        return null;
+    }
     // 修改周目
     public void ChangePlayThrough(int newPlayThrough)
     {
@@ -43,9 +56,24 @@ public class TimeLine_Manager : MonoBehaviour
         switch (tl)
         {
             case 112:
+                //玩家对话取消
                 data.playerIsOnDL = false;
+                //
+                //data.npcs[0].GetComponent<NPC_Dial>().dialogueData = data.diaSoOs[data.diaC
                 break;
-
+            case 113:
+                data.diaCode = 16;
+                data.playerIsOnDL =true;
+                break;
+            case 114:
+                data.playerIsOnDL = false;
+                data.diaCode = 19;
+                GetNPCByName("Dad_Home").GetComponent<NPC_Dial>().isonline = true;
+                GetNPCByName("Dad_Home").GetComponent<NPC_Dial>().dialogueData = data.diaSoOs[data.diaCode];
+                break;
+            case 115:
+                GetNPCByName("Dad_Home").GetComponent<NPC_Dial>().isonline = false;
+                break;
             default:
                 break;
         }

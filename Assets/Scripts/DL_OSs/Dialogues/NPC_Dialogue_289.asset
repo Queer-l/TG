@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726a5b2873465b84092f700b81537587, type: 3}
+  m_Name: NPC_Dialogue_289
+  m_EditorClassIdentifier: 
+  sentences:
+  - "\u6211\u4ECE\u5589\u5499\u4E2D\u6324\u51FA\u5636\u54D1\u7684\u6C14\u97F3\uFF0C\u8EAB\u4F53\u56E0\u4E3A\u53CC\u817F\u53D1\u8F6F\u800C\u4E0D\u53D7\u63A7\u5236\u5730\u5411\u540E\u8DCC\u53BB"
+  isLast: 0
+  chapter: 289
