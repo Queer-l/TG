@@ -9,8 +9,8 @@ public class InventoryData : MonoBehaviour
 
     // 核心数据（只有这里存）
     public List<ItemSO> myItemSOs = new List<ItemSO>();
-    public int[] itemCounts = new int[40]; 
-
+    public int[] itemCounts = new int[40];
+    public bool[] itemStats = new bool[40];
     private void Awake()
     {
         // 单例保证唯一

@@ -11,4 +11,6 @@ public class ItemSO : ScriptableObject
 
     [Header("MoreDescription")]
     [TextArea] public string moreDescription;
+
+
 }

@@ -27,8 +27,6 @@ public class TimeLine_Manager : MonoBehaviour
     {
         // 存到全局数据
         data.chapter = newchapter;
-        
-
         UpdataThings(newchapter);
     }
 
@@ -37,7 +35,7 @@ public class TimeLine_Manager : MonoBehaviour
     {
         data.playThrough = newPlayThrough;
     }
-
+    //修改时间线中所有设置
     void UpdataThings(int newchapter)
     {
         int tl = newchapter;
