@@ -14,7 +14,7 @@ public class TimeLineData : MonoBehaviour
     public NPC_DialogueSO[] diaSoOs;
     [Header("npc管理器")]
     public NPC_Visible[] npcs = new NPC_Visible[40];
-    
+    [Header("对话状态")]
     public bool playerIsOnDL = true;
     [Header("对话编码")]
     public int diaCode = 0;

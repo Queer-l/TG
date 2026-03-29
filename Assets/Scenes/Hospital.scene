@@ -305,6 +305,7 @@ MonoBehaviour:
   dialogueData: {fileID: 0}
   dialoguePanel: {fileID: 1133842340}
   dialogueText: {fileID: 1133842339}
+  cg: {fileID: 0}
   NPC_Name: Player
   npcNmaeText: {fileID: 1133842338}
   timeLineManager: {fileID: 391539148}
@@ -596,11 +597,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1504734387591917289, guid: 47d5a17aca0342c45ac0c5a2856a7300, type: 3}
       propertyPath: pltoPosition.x
-      value: 5.6
+      value: 5.7
       objectReference: {fileID: 0}
     - target: {fileID: 1504734387591917289, guid: 47d5a17aca0342c45ac0c5a2856a7300, type: 3}
       propertyPath: pltoPosition.y
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
